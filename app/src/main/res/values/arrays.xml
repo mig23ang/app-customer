@@ -1,0 +1,28 @@
+<resources>
+
+    <string-array name="document_types_values">
+        <item>CC</item>
+        <item>TI</item>
+        <item>CDI</item>
+        <item>CE</item>
+        <item>CPA</item>
+        <item>NIT</item>
+        <item>PAS</item>
+        <item>RCN</item>
+        <item>RUT</item>
+        <item>TE</item>
+    </string-array>
+
+    <array name="document_types">
+        <item>CC - Cédula de Ciudadania</item>
+        <item>TI - Tarjeta de Identitdad</item>
+        <item>CDI - Carné Diplomatico</item>
+        <item>CE - Cédula de Extranjeria</item>
+        <item>CPA - Cédula Países Andinos</item>
+        <item>NIT - CPA</item>
+        <item>PAS - Pasaporte</item>
+        <item>RCN - Registro Civil</item>
+        <item>RUT - Registro Único Tributario</item>
+        <item>TE - Terceros del Exterior sin Domicilio</item>
+    </array>
+</resources>

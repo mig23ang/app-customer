@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgray"
+    android:orientation="vertical">
+
+
+
+    <ImageView
+        android:id="@+id/onboarding"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="imagen"
+        app:layout_constraintDimensionRatio="W,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/onboarding_login"
+        tools:ignore="HardcodedText,ImageContrastCheck,MissingConstraints,VisualLintBounds" />
+
+    <TextView
+        android:id="@+id/textViewHola"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:fontFamily="@font/hvdtrial_brevia_medium"
+        android:text="@string/holalogin"
+        android:textColor="@color/letersblack"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,MissingConstraints,VisualLintBounds,TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/textViewIngresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="268dp"
+        android:fontFamily="@font/hvdtrial_brevia_medium"
+        android:text="Ingresa MiBanco APP"
+        android:textColor="@color/letersblack"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,MissingConstraints,VisualLintBounds,TextSizeCheck" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresa"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:id="@+id/lblcorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/hvdtrial_brevia_medium"
+            android:text="@string/correoelectronico"
+            android:textColor="@color/letersblack" />
+
+        <EditText
+            android:id="@+id/edit_text_document"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/rounded_edittext"
+            android:fontFamily="@font/hvdtrial_brevia_medium"
+            android:text=""
+            android:textColor="@color/letersblack"
+            android:hint="@string/correohint"
+            android:textColorHint="@color/letersblack"
+            android:inputType="text"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:autofillHints="emailAddress" />
+
+        <TextView
+            android:id="@+id/lbldocumenterror"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/hvdtrial_brevia_medium"
+            android:textSize="12sp"
+            android:text="@string/error_input_number_document"
+            android:textColor="@color/errorred"
+            android:visibility="invisible"
+            tools:ignore="HardcodedText,MissingConstraints" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/hvdtrial_brevia_medium"
+            android:textSize="14sp"
+            android:hint="Contraseña"
+            android:textColor="@color/letersblack"
+            android:textColorHint="@color/letersblack"
+            tools:ignore="HardcodedText,MissingConstraints" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textimput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:endIconMode="password_toggle"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/rounded_edittext"
+                android:fontFamily="@font/hvdtrial_brevia_medium"
+                android:inputType="textPassword"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"
+                android:text=""
+                android:hint="@string/escribe_tu_contrasena"
+                android:textColor="@color/letersblack"
+                android:textColorHint="@color/letersblack" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/lblerrorpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/hvdtrial_brevia_medium"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            android:text="@string/error_input_paasswprd"
+            android:textColor="@color/errorred"
+            tools:ignore="HardcodedText,MissingConstraints" />
+
+        <TextView
+            android:id="@+id/text_view_recovery_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/hvdtrial_brevia_medium"
+            android:text="@string/recoverypassword"
+            android:textColor="@color/backgreen" />
+
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/rounded_button_green"
+            android:fontFamily="@font/hvdtrial_brevia_medium"
+            android:text="@string/iniciar_sesion"
+            android:textColor="@color/backwhite" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="40dp"
+            android:orientation="horizontal"
+            android:gravity="start">
+
+            <TextView
+                android:id="@+id/text_view_create_user_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/hvdtrial_brevia_medium"
+                android:text="@string/createusertextnoaction"
+                android:textColor="@color/letersblack" />
+
+            <TextView
+                android:id="@+id/text_view_create_user_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/hvdtrial_brevia_medium"
+                android:text="@string/createuser"
+                android:textColor="@color/backgreen" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

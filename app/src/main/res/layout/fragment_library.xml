@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgray"
+    tools:context=".ui.library.LibraryFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/title_folder"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:text="Mi Biblioteca"
+            android:textSize="20dp"
+            android:fontFamily="@font/hvdtrial_brevia_black" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/ficSearchFragment"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/fic"
+        android:textColor="@color/letersblack"
+        android:textSize="14dp"
+        android:elevation="10dp"
+        android:background="@drawable/cardview_blue"
+        android:layout_marginTop="110dp"
+        android:drawableEnd="@drawable/arrow_rigth"
+        android:paddingTop="15dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingTop="15dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="10dp"
+        android:text="Asesores y Pymes"
+        android:textSize="14dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/letersblack"
+        android:elevation="10dp"
+        android:background="@drawable/cardview_blue"
+        android:layout_marginTop="190dp"
+        android:drawableEnd="@drawable/arrow_rigth"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="10dp"
+        android:paddingLeft="20dp"
+        android:text="Asesores Arrieros"
+        android:textSize="14dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/letersblack"
+        android:elevation="10dp"
+        android:background="@drawable/cardview_blue"
+        android:layout_marginTop="270dp"
+        android:drawableEnd="@drawable/arrow_rigth"/>
+
+</FrameLayout>

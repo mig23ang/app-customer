@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008B3B</color>
+    <color name="colorPrimaryDark">#008B3B</color>
+    <color name="colorAccent">#FFCE00</color>
+    <color name="splasscreencolor">#ff0000</color>
+    <color name="white">#ffffff</color>
+    <color name="backgreen">#008B3B</color>
+    <color name="backwhite">#FFFFFF</color>
+    <color name="backgray">#F2F5F7</color>
+    <color name="backyellow">#FFCE00</color>
+    <color name="bordergray">#C2C7C4</color>
+    <color name="letersblack">#0C0B0B</color>
+    <color name="cardviwblue">#3FB1E2</color>
+    <color name="cardviewyellow">#FFCE00</color>
+    <color name="cardviewgreen">#92D050</color>
+    <color name="errorred">#C5290A</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
+</resources>

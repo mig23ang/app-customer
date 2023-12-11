@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Información principal"
+            android:textAllCaps="true"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo de documento"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tipeDocument"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CC - Cedula de ciudadania" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Número de documento"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/document"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0000000000" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Número de cliente"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/numberClient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0000000000" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre completo"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/fullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre Cliente" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correo electronico"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="example.com" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado civil"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/estadoCivil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Soltero(a)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Activos"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/totalActivos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="000.00" />
+    </LinearLayout>
+</ScrollView>

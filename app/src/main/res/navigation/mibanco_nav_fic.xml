@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mibanco_nav"
+    app:startDestination="@id/datosBasicos">
+
+    <fragment
+        android:id="@+id/datosBasicos"
+        android:name="com.mibanco.customer.ui.ficsearch.details.DatosBasicosFragment"
+        android:label="fragment_datos_basicos"
+        tools:layout="@layout/fragment_datos_basicos" >
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/ofertaAlerta"
+        android:name="com.mibanco.customer.ui.ficsearch.details.OfertaAlertaFragment"
+        android:label="fragment_datos_basicos"
+        tools:layout="@layout/fragment_oferta_alerta" >
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/centralesRiesgo"
+        android:name="com.mibanco.customer.ui.ficsearch.details.CentralesRiesgoFragment"
+        android:label="fragment_datos_basicos"
+        tools:layout="@layout/fragment_central_riesgo" >
+    </fragment>
+
+
+</navigation>

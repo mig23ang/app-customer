@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgray"
+    android:scrollbars="vertical"
+    tools:context=".ui.home.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:gravity="start">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="@string/image_description_home"
+            android:src="@drawable/title_home" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="2dp"
+            android:fontFamily="@font/hvdtrial_brevia_black"
+            android:text="@string/title_home"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/hvdtrial_brevia_medium"
+        android:text="@string/history"
+        android:textColor="@color/letersblack"
+        android:textSize="16sp" />
+
+
+    <TextView
+        android:id="@+id/btnhomelastvisited"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/cardview_green"
+        android:elevation="10dp"
+        android:paddingStart="20dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="20dp"
+        android:text="@string/history_body"
+        android:textColor="@color/letersblack"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="235dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/hvdtrial_brevia_medium"
+        android:text="@string/news"
+        android:textColor="@color/letersblack"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/news1body"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/cardview_blue"
+        android:elevation="10dp"
+        android:paddingStart="20dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="20dp"
+        android:text="@string/news_body"
+        android:textColor="@color/letersblack"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="375dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/hvdtrial_brevia_medium"
+        android:text="@string/news_messagin"
+        android:textColor="@color/letersblack"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/news2"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="395dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/cardview_yellow"
+        android:elevation="10dp"
+        android:paddingStart="20dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="20dp"
+        android:text="@string/news_messagin_body"
+        android:textColor="@color/letersblack"
+        android:textSize="14sp" />
+
+</FrameLayout>

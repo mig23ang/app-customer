@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mibanco_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.mibanco.customer.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_ficSearchFragment"
+            app:destination="@id/ficSearchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.mibanco.customer.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/ficSearchFragment"
+        android:name="com.mibanco.customer.ui.ficsearch.FicSearchFragment"
+        android:label="fragment_fic_search"
+        tools:layout="@layout/fragment_fic_search" >
+        <action
+            android:id="@+id/action_ficSearchFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/libraryFragment"
+        android:name="com.mibanco.customer.ui.library.LibraryFragment"
+        android:label="fragment_library"
+        tools:layout="@layout/fragment_library" />
+    <fragment
+        android:id="@+id/searchByIdFragment"
+        android:name="com.mibanco.customer.ui.search.SearchByIdFragment"
+        android:label="fragment_search_by_id"
+        tools:layout="@layout/fragment_search_by_id" >
+        <action
+            android:id="@+id/action_searchByIdFragment_to_errorSeachFragment2"
+            app:destination="@id/errorSeachFragment" />
+        <action
+            android:id="@+id/action_searchByIdFragment_to_resultClientByIdFragment"
+            app:destination="@id/resultClientByIdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/errorSeachFragment"
+        android:name="com.mibanco.customer.ui.search.ErrorSearchFragment"
+        android:label="fragment_error_seach"
+        tools:layout="@layout/fragment_error_seach" />
+    <fragment
+        android:id="@+id/searchByNameFragment"
+        android:name="com.mibanco.customer.ui.search.SearchByNameFragment"
+        android:label="fragment_search_by_name"
+        tools:layout="@layout/fragment_search_by_name" >
+        <action
+            android:id="@+id/action_searchByNameFragment_to_errorSeachFragment2"
+            app:destination="@id/errorSeachFragment" />
+        <action
+            android:id="@+id/action_searchByNameFragment_to_resultClientByNameFragment"
+            app:destination="@id/resultClientByNameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultClientByIdFragment"
+        android:name="com.mibanco.customer.ui.search.ResultClientByIdFragment"
+        android:label="fragment_result_client_by_id"
+        tools:layout="@layout/fragment_result_client_by_id" >
+        <action
+            android:id="@+id/action_resultClientByIdFragment_to_searchByIdFragment"
+            app:destination="@id/searchByIdFragment" />
+        <action
+            android:id="@+id/action_resultClientByIdFragment_to_clientMenuFragment"
+            app:destination="@id/clientMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultClientByNameFragment"
+        android:name="com.mibanco.customer.ui.search.ResultClientByNameFragment"
+        android:label="fragment_result_client_by_name"
+        tools:layout="@layout/fragment_result_client_by_name" >
+        <action
+            android:id="@+id/action_resultClientByNameFragment_to_searchByNameFragment"
+            app:destination="@id/searchByNameFragment" />
+        <argument
+            android:name="nombreCliente"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_resultClientByNameFragment_to_clientMenuFragment"
+            app:destination="@id/clientMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clientMenuFragment"
+        android:name="com.mibanco.customer.ui.search.ClientMenuFragment"
+        android:label="fragment_client_menu"
+        tools:layout="@layout/fragment_client_menu" >
+        <action
+            android:id="@+id/action_clientMenuFragment_to_resultClientByNameFragment"
+            app:destination="@id/resultClientByNameFragment" />
+        <action
+            android:id="@+id/action_clientMenuFragment_to_resultClientByIdFragment"
+            app:destination="@id/resultClientByIdFragment" />
+    </fragment>
+</navigation>
