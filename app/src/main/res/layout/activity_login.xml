@@ -160,17 +160,6 @@
             android:textColor="@color/errorred"
             tools:ignore="HardcodedText,MissingConstraints" />
 
-        <TextView
-            android:id="@+id/text_view_recovery_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="20dp"
-            android:fontFamily="@font/hvdtrial_brevia_medium"
-            android:text="@string/recoverypassword"
-            android:textColor="@color/backgreen" />
-
 
         <Button
             android:id="@+id/button_login"
@@ -184,32 +173,5 @@
             android:text="@string/iniciar_sesion"
             android:textColor="@color/backwhite" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="40dp"
-            android:orientation="horizontal"
-            android:gravity="start">
-
-            <TextView
-                android:id="@+id/text_view_create_user_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="5dp"
-                android:fontFamily="@font/hvdtrial_brevia_medium"
-                android:text="@string/createusertextnoaction"
-                android:textColor="@color/letersblack" />
-
-            <TextView
-                android:id="@+id/text_view_create_user_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/hvdtrial_brevia_medium"
-                android:text="@string/createuser"
-                android:textColor="@color/backgreen" />
-        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

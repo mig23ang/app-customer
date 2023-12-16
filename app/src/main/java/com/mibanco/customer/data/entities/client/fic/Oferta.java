@@ -4,80 +4,102 @@ import java.io.Serializable;
 
 public class Oferta implements Serializable {
 
-    private String numeroCliente;
-    private String numeroOferta;
-    private String tipoLead;
-    private String tipoOferta;
-    private String monto;
-    private String plazo;
-    private String tipoDeLiga;
+
+    private int id;
+    private String categoria;
+    private String opcion;
+    private String tipo;
+    private String fechaInicial;
+    private String fechaFinal;
+    private int monto;
+    private int plazo;
+    private String tipoLiga;
     private String condicionGarantia;
 
-    public Oferta(String numeroCliente, String numeroOferta, String tipoLead, String tipoOferta, String monto, String plazo, String tipoDeLiga, String condicionGarantia) {
-        this.setNumeroCliente(numeroCliente);
-        this.setNumeroOferta(numeroOferta);
-        this.setTipoLead(tipoLead);
-        this.setTipoOferta(tipoOferta);
+
+    public Oferta(int id, String categoria, String opcion, String tipo, String fechaInicial, String fechaFinal, int monto, int plazo, String tipoLiga, String condicionGarantia) {
+        this.setId(id);
+        this.setCategoria(categoria);
+        this.setOpcion(opcion);
+        this.setTipo(tipo);
+        this.setFechaInicial(fechaInicial);
+        this.setFechaFinal(fechaFinal);
         this.setMonto(monto);
         this.setPlazo(plazo);
-        this.setTipoDeLiga(tipoDeLiga);
+        this.setTipoLiga(tipoLiga);
         this.setCondicionGarantia(condicionGarantia);
     }
 
-    public String getNumeroCliente() {
-        return numeroCliente;
+    public int getId() {
+        return id;
     }
 
-    public void setNumeroCliente(String numeroCliente) {
-        this.numeroCliente = numeroCliente;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getNumeroOferta() {
-        return numeroOferta;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setNumeroOferta(String numeroOferta) {
-        this.numeroOferta = numeroOferta;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
-    public String getTipoLead() {
-        return tipoLead;
+    public String getOpcion() {
+        return opcion;
     }
 
-    public void setTipoLead(String tipoLead) {
-        this.tipoLead = tipoLead;
+    public void setOpcion(String opcion) {
+        this.opcion = opcion;
     }
 
-    public String getTipoOferta() {
-        return tipoOferta;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setTipoOferta(String tipoOferta) {
-        this.tipoOferta = tipoOferta;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public String getMonto() {
+    public String getFechaInicial() {
+        return fechaInicial;
+    }
+
+    public void setFechaInicial(String fechaInicial) {
+        this.fechaInicial = fechaInicial;
+    }
+
+    public String getFechaFinal() {
+        return fechaFinal;
+    }
+
+    public void setFechaFinal(String fechaFinal) {
+        this.fechaFinal = fechaFinal;
+    }
+
+    public int getMonto() {
         return monto;
     }
 
-    public void setMonto(String monto) {
+    public void setMonto(int monto) {
         this.monto = monto;
     }
 
-    public String getPlazo() {
+    public int getPlazo() {
         return plazo;
     }
 
-    public void setPlazo(String plazo) {
+    public void setPlazo(int plazo) {
         this.plazo = plazo;
     }
 
-    public String getTipoDeLiga() {
-        return tipoDeLiga;
+    public String getTipoLiga() {
+        return tipoLiga;
     }
 
-    public void setTipoDeLiga(String tipoDeLiga) {
-        this.tipoDeLiga = tipoDeLiga;
+    public void setTipoLiga(String tipoLiga) {
+        this.tipoLiga = tipoLiga;
     }
 
     public String getCondicionGarantia() {

@@ -92,6 +92,7 @@ public class ResultClientByIdFragment extends Fragment implements SearchService.
 
     @Override
     public void onClientGetSuccess(InformacionPrincipal informacionPrincipal, String tipoDocumento, String documento) {
+
         Bundle bundle = new Bundle();
         bundle.putSerializable("clientDetails", informacionPrincipal);
         bundle.putString("clientDetailsTipoDocumento", tipoDocumento);

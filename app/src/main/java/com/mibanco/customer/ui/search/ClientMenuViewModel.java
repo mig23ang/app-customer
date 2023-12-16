@@ -1,5 +1,8 @@
 package com.mibanco.customer.ui.search;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -12,7 +15,7 @@ public class ClientMenuViewModel extends ViewModel {
     private final MutableLiveData<InformacionPrincipal> informacionPrincipal = new MutableLiveData<>();
 
     public void setInformacionPrincipal(InformacionPrincipal info) {
-        informacionPrincipal.setValue(info);
+        informacionPrincipal.postValue(info);
     }
 
     public LiveData<InformacionPrincipal> getInformacionPrincipal() {

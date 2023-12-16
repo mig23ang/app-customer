@@ -24,11 +24,14 @@ import com.mibanco.customer.R;
 
 import org.w3c.dom.Text;
 
+
+
 public class MenuActivity extends AppCompatActivity {
+    private static final int NAVIGATION_HOME_ID = R.id.homeFragment;
 
     ImageView exit;
     TextView saludoUser;
-        private ActivityMenuBinding binding;
+    private ActivityMenuBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,21 +40,40 @@ public class MenuActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             getSupportActionBar().hide();
 
+
+
+
             binding = ActivityMenuBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
+
+
             AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.homeFragment, R.id.libraryFragment, R.id.searchFragment).build();
+                    R.id.homeFragment, R.id.libraryFragment).build();
 
             NavController navController = Navigation.findNavController(this, R.id.fragment);
 
             NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
             NavigationUI.setupWithNavController(binding.bottomNavigationView, navController);
+
+
+            binding.bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+                if (item.getItemId() == R.id.homeFragment) {
+                    navController.popBackStack(R.id.homeFragment, false);
+                    navController.navigate(R.id.homeFragment);
+                    return true;
+                } else if (item.getItemId() == R.id.libraryFragment) {
+                    navController.navigate(R.id.libraryFragment);
+                    return true;
+                }
+
+                 return false;
+            });
             exit = binding.exit;
-            saludoUser = binding.saludoUser;
+            //saludoUser = binding.saludoUser;
             TokenDataStore tokenDataStore = new TokenDataStore(this);
             String token = tokenDataStore.getAuthToken();
 
-            saludoUser.setText(tokenDataStore.getUsernameFromToken("Hola, " + token));
+            //saludoUser.setText(tokenDataStore.getUsernameFromToken("Hola, " + token));
 
             exit.setOnClickListener(new View.OnClickListener() {
                 @Override

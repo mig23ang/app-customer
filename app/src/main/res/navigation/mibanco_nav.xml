@@ -95,10 +95,78 @@
         android:label="fragment_client_menu"
         tools:layout="@layout/fragment_client_menu" >
         <action
-            android:id="@+id/action_clientMenuFragment_to_resultClientByNameFragment"
-            app:destination="@id/resultClientByNameFragment" />
+            android:id="@+id/action_clientMenuFragment_to_datosBasicos"
+            app:destination="@id/datosBasicosFragment" />
         <action
-            android:id="@+id/action_clientMenuFragment_to_resultClientByIdFragment"
-            app:destination="@id/resultClientByIdFragment" />
+            android:id="@+id/action_clientMenuFragment_to_ofertaAlerta"
+            app:destination="@id/ofertaAlertaFragment" />
+
     </fragment>
+
+
+    <fragment
+        android:id="@+id/datosBasicosFragment"
+        android:name="com.mibanco.customer.ui.ficsearch.details.DatosBasicosFragment"
+        android:label="fragment_datos_basicos"
+        tools:layout="@layout/fragment_datos_basicos" >
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/ofertaAlertaFragment"
+        android:name="com.mibanco.customer.ui.ficsearch.details.OfertaAlertaFragment"
+        android:label="fragment_datos_basicos"
+        tools:layout="@layout/fragment_oferta_alerta" >
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/centralesRiesgoFragment"
+        android:name="com.mibanco.customer.ui.ficsearch.details.CentralesRiesgoFragment"
+        android:label="fragment_centrales_riesgo"
+        tools:layout="@layout/fragment_centrales_riesgo" >
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/historialPrestamoFragment"
+        android:name="com.mibanco.customer.ui.ficsearch.details.HistorialPrestamoFragment"
+        android:label="fragment_historial_prestamo"
+        tools:layout="@layout/fragment_historial_prestamos" >
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/cupoRotativoFragment"
+        android:name="com.mibanco.customer.ui.ficsearch.details.CupoRotativoFragment"
+        android:label="fragment_cupo_rotativo"
+        tools:layout="@layout/fragment_cupo_rotativo" >
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/pasivosFragment"
+        android:name="com.mibanco.customer.ui.ficsearch.details.PasivosFragment"
+        android:label="fragment_pasivos"
+        tools:layout="@layout/fragment_pasivos" >
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/historialContactoFragment"
+        android:name="com.mibanco.customer.ui.ficsearch.details.HistorialContactosFragment"
+        android:label="fragment_historial_contacto"
+        tools:layout="@layout/fragment_historial_contacto" >
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/pqrFragment"
+        android:name="com.mibanco.customer.ui.ficsearch.details.PqrFragment"
+        android:label="fragment_pqr"
+        tools:layout="@layout/fragment_pqr" >
+    </fragment>
+
 </navigation>

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Base.Theme.CustomerCentric" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/backgreen</item>
+        <!--<item name=""-->
+    </style>
+    <style name="Theme.CustomerCentric" parent="Base.Theme.CustomerCentric" />
+
+
+
 
     <style name="Theme.Customer" parent="android:Theme.Material.Light.NoActionBar" />
 

@@ -4,13 +4,17 @@ import android.content.ClipData;
 import android.content.Context;
 import android.media.RouteListingPreference;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,6 +23,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.mibanco.customer.R;
+import com.mibanco.customer.common.NumberTextWatcher;
 import com.mibanco.customer.data.entities.client.fic.InformacionPrincipal;
 import com.mibanco.customer.databinding.FragmentLibraryBinding;
 import com.mibanco.customer.databinding.FragmentSearchByIdBinding;
@@ -31,9 +36,10 @@ import java.util.List;
 public class SearchByIdFragment extends Fragment implements SearchService.OnClientSearchByIdResponseListener {
 
     Spinner tipeDocument;
-    Button btnsearchbyid;
+    Button btnsearchbyid, btnclearbyid;
 
-    EditText documentEditTextSearch;
+    TextView separate;
+    EditText documentEditTextSearch, codedocumentEditTextSearch;
 
     private SearchByIdViewModel searchByIdViewModel;
     private FragmentSearchByIdBinding binding;
@@ -48,13 +54,51 @@ public class SearchByIdFragment extends Fragment implements SearchService.OnClie
         tipeDocument = binding.spinnerDocumentType;
         itemsTipeDocument(tipeDocument, getContext());
         documentEditTextSearch = binding.documentEditTextSearch;
-
+        documentEditTextSearch.addTextChangedListener(new NumberTextWatcher(documentEditTextSearch));
         btnsearchbyid = binding.btnsearchbyid;
+        separate = binding.separate;
+        btnclearbyid = binding.btncleanbyid;
+        codedocumentEditTextSearch = binding.codedocumentEditTextSearch;
+
+        tipeDocument.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                try {
+                    Item selectSpinner = (Item) adapterView.getSelectedItem();
+                    String selectedItem = (String) selectSpinner.getInternalValue();
+                    if(selectedItem.equals("NIT")){
+                        separate.setVisibility(View.VISIBLE);
+                        codedocumentEditTextSearch.setVisibility(View.VISIBLE);
+                    }else{
+                        separate.setVisibility(View.GONE);
+                        codedocumentEditTextSearch.setVisibility(View.GONE);
+                    }
+                }catch (Exception e){
+                    Toast.makeText(getContext(), ""+e, Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        btnclearbyid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                documentEditTextSearch.setText("");
+            }
+        });
+
         btnsearchbyid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(documentEditTextSearch.getText().toString().isEmpty()){
-                    Toast.makeText(getContext(), "No hay un documento que buscar", Toast.LENGTH_LONG).show();
+                if(documentEditTextSearch.getText().toString().isEmpty() ||  documentEditTextSearch.getText().toString().equals("0")){
+                    documentEditTextSearch.setError("Debes ingresar un número de documento");
+                    documentEditTextSearch.setBackgroundResource(R.drawable.rounded_edittext_red_wired);
+                    delete_alert(documentEditTextSearch);
                 }else{
                     Item selectSpinner = (Item) tipeDocument.getSelectedItem();
                     String tipeDocument = selectSpinner.getInternalValue();
@@ -137,6 +181,25 @@ public class SearchByIdFragment extends Fragment implements SearchService.OnClie
     }
 
 
+
+    private void delete_alert(EditText editText){
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                documentEditTextSearch.setBackgroundResource(R.drawable.rounded_edittext);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
 }
 
 

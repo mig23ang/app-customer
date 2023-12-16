@@ -1,0 +1,15 @@
+<!-- res/drawable/custom_group_indicator.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_empty="true">
+        <!-- Definición del drawable para el estado "vacío" -->
+        <bitmap android:src="@drawable/alert_circle" />
+    </item>
+    <item android:state_expanded="true">
+        <!-- Definición del drawable para el estado "expandido" -->
+        <bitmap android:src="@drawable/arrow_down" />
+    </item>
+    <item>
+        <!-- Definición del drawable predeterminado -->
+        <bitmap android:src="@drawable/arrow_down_blue" />
+    </item>
+</selector>

@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity implements LoginService.OnL
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
@@ -149,7 +150,7 @@ public class LoginActivity extends AppCompatActivity implements LoginService.OnL
     }
 
     @Override
-    public void onLoginError(Throwable t) {
+    public void onLoginError(String t) {
 
         lblerrorpassword.setText(t.toString());
         lblerrorpassword.setVisibility(View.VISIBLE);

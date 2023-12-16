@@ -3,29 +3,36 @@ package com.mibanco.customer.data.entities.client.fic;
 import java.io.Serializable;
 
 public class Alerta implements Serializable {
-    private String tipoAlerta;
+
+
+    private int id;
+    private String tipo;
     private String banco;
     private String fecha;
-    private String tipoDocumento;
-    private String numeroDocumento;
-    private String digitoVerificacion;
 
-    public Alerta(String tipoAlerta, String banco, String fecha, String tipoDocumento, String numeroDocumento, String digitoVerificacion) {
-        this.setTipoAlerta(tipoAlerta);
+
+    public Alerta(int id, String tipo, String banco, String fecha) {
+        this.setId(id);
+        this.setTipo(tipo);
         this.setBanco(banco);
         this.setFecha(fecha);
-        this.setTipoDocumento(tipoDocumento);
-        this.setNumeroDocumento(numeroDocumento);
-        this.setDigitoVerificacion(digitoVerificacion);
     }
 
 
-    public String getTipoAlerta() {
-        return tipoAlerta;
+    public int getId() {
+        return id;
     }
 
-    public void setTipoAlerta(String tipoAlerta) {
-        this.tipoAlerta = tipoAlerta;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getBanco() {
@@ -42,29 +49,5 @@ public class Alerta implements Serializable {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
-    }
-
-    public String getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
-    public String getNumeroDocumento() {
-        return numeroDocumento;
-    }
-
-    public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
-    }
-
-    public String getDigitoVerificacion() {
-        return digitoVerificacion;
-    }
-
-    public void setDigitoVerificacion(String digitoVerificacion) {
-        this.digitoVerificacion = digitoVerificacion;
     }
 }

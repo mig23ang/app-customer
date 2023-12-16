@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         android:contentDescription="@string/image_description_home"
         android:src="@drawable/shapeboard_top"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,36 +63,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="@string/image_description_menu_drawler" />
-
-    <TextView
-        android:id="@+id/saludoUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="95dp"
-        android:layout_marginRight="20dp"
-        android:fontFamily="@font/hvdtrial_brevia_medium"
-        android:text="@string/hola"
-        android:textColor="@color/backwhite"
-        android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginRight="20dp"
-        android:text="@string/bienvenido_a_mi_banco"
-        android:textColor="@color/backwhite"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
 
     <fragment
         android:id="@+id/fragment"

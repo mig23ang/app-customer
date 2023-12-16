@@ -12,15 +12,20 @@ import androidx.constraintlayout.widget.Group;
 
 import com.mibanco.customer.R;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Context context;
     private List<Group> groups;
 
-    public ExpandableListAdapter(Context context, List<Group> groups) {
+    private Map<String, ArrayList<String>> mapChild;
+
+    public ExpandableListAdapter(Context context, List<Group> groups,  Map<String, ArrayList<String>> mapChild) {
         this.context = context;
         this.groups = groups;
+        this.mapChild = mapChild;
     }
 
     @Override
@@ -64,7 +69,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.item_select_client, null);
+            convertView = inflater.inflate(R.layout.group_datos_basicos, null);
         }
 
         //TextView groupTitle = convertView.findViewById(R.id.groupTitle);
@@ -79,7 +84,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            //convertView = inflater.inflate(R.layout.list_item, null);
+            convertView = inflater.inflate(R.layout.child_datos_basicos, null);
         }
 
         //TextView childItem = convertView.findViewById(R.id.childItem);

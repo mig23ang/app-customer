@@ -1,106 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemclientbyname"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:background="@color/backgray"
+    android:padding="5dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Información principal"
-            android:textAllCaps="true"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tipo de documento"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/tipeDocument"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CC - Cedula de ciudadania" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/back_item_search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Número de documento"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/document"
-            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="20dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_back_foreground"/>
+                <TextView
+                    android:id="@+id/back_fic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="volver"
+                    android:layout_marginBottom="10dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/fullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/hvdtrial_brevia_bold"
+                android:text="Juan Carlos Ramirez"
+                android:textColor="@color/letersblack"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/titlePhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="0dp"
+                    android:fontFamily="@font/hvdtrial_brevia_regular"
+                    android:text="Telefono del negocio:"
+                    android:textColor="@color/letersblack"
+                    android:textSize="14sp"
+
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/itemclientnamebyname" />
+
+                <TextView
+                    android:id="@+id/phoneCompany"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="100dp"
+                    android:fontFamily="@font/hvdtrial_brevia_regular"
+                    android:text="311 111 1111"
+                    android:textColor="@color/letersblack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/itemclientnamebyname" />
+
+            </LinearLayout>
+            <TextView
+
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="0000000000" />
+                android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="100dp"
+            android:fontFamily="@font/hvdtrial_brevia_regular"
+            android:text="Datos básicos"
+            android:textColor="@color/letersblack"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemclientnamebyname" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Número de cliente"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/numberClient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0000000000" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:background="#CCCCCC" />
+
+            <ExpandableListView
+                android:id="@+id/expandableListView"
+                android:layout_width="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_height="match_parent"
+                android:groupIndicator="@null"/>
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre completo"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/fullName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre Cliente" />
+        </LinearLayout>
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Correo electronico"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="example.com" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Estado civil"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/estadoCivil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Soltero(a)" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total Activos"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/totalActivos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="000.00" />
-    </LinearLayout>
-</ScrollView>
+        <View
+            android:id="@+id/viewleft"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/back_item_search_deco"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

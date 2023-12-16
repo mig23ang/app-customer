@@ -16,6 +16,7 @@ import com.mibanco.customer.data.entities.client.Client;
 import com.mibanco.customer.data.entities.client.TotalClient;
 import com.mibanco.customer.data.entities.client.fic.InformacionPrincipal;
 import com.mibanco.customer.response.TokenResponse;
+import com.mibanco.customer.ui.application.LoginActivity;
 import com.mibanco.customer.ui.search.SearchByNameFragment;
 
 import java.util.List;
@@ -56,7 +57,19 @@ public class SearchService {
             public void onFailure(Call<TotalClient> call, Throwable t) {
                 loadingDialog.dismiss();
                 Toast.makeText(context, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.e("Error", ""+t.getMessage());
+                Log.e("Error", " Se obtuvo "+t.getMessage());
+                AlertDialog.Builder Bien = new AlertDialog.Builder(context);
+                Bien.setMessage(""+t.getMessage())
+                        .setCancelable(false)
+                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        });
+                AlertDialog Titulo = Bien.create();
+                Titulo.setTitle("error!");
+                Titulo.show();
             }
         });
     }

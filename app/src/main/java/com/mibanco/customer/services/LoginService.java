@@ -34,40 +34,50 @@ public class LoginService {
         loadingDialog.show();
 
         UserRequest userRequest = new UserRequest(username, password);
-        authService.loginUser("hola-mi-id-tyba", "web", "123", userRequest).enqueue(new Callback<TokenResponse>() {
-            @Override
-            public void onResponse(Call<TokenResponse> call, Response<TokenResponse> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    if (listener != null) {
-                        listener.onLoginSuccess(response);
-                    }
+        try{
+            authService.loginUser("hola-mi-id-tyba", "web", "123", userRequest).enqueue(new Callback<TokenResponse>() {
+                @Override
+                public void onResponse(Call<TokenResponse> call, Response<TokenResponse> response) {
                     loadingDialog.dismiss();
-                } else {
+                    if (response.isSuccessful() && response.body() != null) {
+                        if (listener != null) {
+                            listener.onLoginSuccess(response);
+                        }
+                        //loadingDialog.dismiss();
+                    } else {
 
-                    if (response.errorBody() != null) {
-                        try {
+                        if (response.errorBody() != null) {
+                            try {
 
-                            String errorBodyString = response.errorBody().string();
-                            //Toast.makeText(context, ""+errorBodyString, Toast.LENGTH_SHORT).show();
-                            if (listener != null) {
-                                listener.onCredentialsInvalid(errorBodyString);
+                                String errorBodyString = response.errorBody().string();
+                                //Toast.makeText(context, ""+errorBodyString, Toast.LENGTH_SHORT).show();
+                                if (listener != null) {
+                                    listener.onCredentialsInvalid(errorBodyString);
+                                }
+                                //loadingDialog.dismiss();
+
+                            } catch (IOException e) {
+                                e.printStackTrace();
                             }
-                            loadingDialog.dismiss();
-
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                        }else{
+                            if (listener != null) {
+                                listener.onCredentialsInvalid("Si se conecta pero no permite iniciar");
+                            }
                         }
                     }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<TokenResponse> call, Throwable t) {
-                if (listener != null) {
-                    listener.onLoginError(t);
+                @Override
+                public void onFailure(Call<TokenResponse> call, Throwable t) {
+                    if (listener != null) {
+                        listener.onLoginError("Ocurrio un error al iniciar sesión");
+                    }
                 }
-            }
-        });
+            });
+
+        }catch (Exception e){
+            Toast.makeText(context, ""+e, Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -122,6 +132,6 @@ public class LoginService {
 
 
         void onExpiredToken(String message);
-        void onLoginError(Throwable t);
+        void onLoginError(String message);
     }
 }

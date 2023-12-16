@@ -44,14 +44,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="20dp"
+            android:text="Busca por"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigationSearch"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/tab_background"
+            android:background="@drawable/border_buttons_clear"
             android:paddingBottom="15dp"
             app:tabIndicatorColor="@color/backgreen"
             app:itemIconTint="@color/letersblack"
