@@ -6,13 +6,13 @@ public class Conyuge implements Serializable {
     private String tipoDocumento;
     private String numeroDocumento;
     private String nombre;
-    private String numeroCliente;
 
-    public Conyuge(String tipoDocumento, String numeroDocumento, String nombre, String numeroCliente) {
+
+    public Conyuge(String tipoDocumento, String numeroDocumento, String nombre) {
         this.setTipoDocumento(tipoDocumento);
         this.setNumeroDocumento(numeroDocumento);
         this.setNombre(nombre);
-        this.setNumeroCliente(numeroCliente);
+
     }
 
 
@@ -40,11 +40,4 @@ public class Conyuge implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getNumeroCliente() {
-        return numeroCliente;
-    }
-
-    public void setNumeroCliente(String numeroCliente) {
-        this.numeroCliente = numeroCliente;
-    }
 }

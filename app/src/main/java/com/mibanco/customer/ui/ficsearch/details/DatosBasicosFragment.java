@@ -26,6 +26,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mibanco.customer.R;
 import com.mibanco.customer.data.adapters.ClientDataAdapter;
+import com.mibanco.customer.data.entities.client.fic.Client;
 import com.mibanco.customer.data.entities.client.fic.InformacionPrincipal;
 import com.mibanco.customer.databinding.FragmentDatosBasicosBinding;
 import com.mibanco.customer.databinding.FragmentFicSearchBinding;
@@ -46,7 +47,7 @@ public class DatosBasicosFragment extends Fragment {
 
 
 
-    TextView tipoDocumeto, documeto, numeroDocumento, nombreCompleto, correo, estadoCivil, activos;
+    TextView fullName, phoneCompany;
     private DatosBasicosViewModel datosBasicosViewModel;
     private FragmentDatosBasicosBinding binding;
 
@@ -57,11 +58,18 @@ public class DatosBasicosFragment extends Fragment {
 
         binding = FragmentDatosBasicosBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        fullName = binding.fullName;
+        phoneCompany = binding.phoneCompany;
+
 
         options = binding.expandableListView;
         listOptions = new ArrayList<>();
         mapChild=new HashMap<>();
         mapChild2=new HashMap<>();
+
+
+
+
         cargarDatosBasicos();
         ClientMenuViewModel clientMenuViewModel = new ViewModelProvider(requireActivity()).get(ClientMenuViewModel.class);
         clientMenuViewModel.getInformacionPrincipal().observe(getViewLifecycleOwner(), new Observer<InformacionPrincipal>() {
@@ -76,8 +84,14 @@ public class DatosBasicosFragment extends Fragment {
 
 
 
-    //La siguiente función simulará los datos...
+
     private void cargarDatosBasicos(){
+        Client datosBasicos = (Client) getArguments().getSerializable("datosBasicos");
+
+        fullName.setText(datosBasicos.getNombreCompleto());
+        phoneCompany.setText(datosBasicos.getNegocio() != null ? datosBasicos.getNegocio().getTelefono1() : "-");
+
+
         ArrayList<String> informacionPrincipal = new ArrayList<>();
         ArrayList<String> informacionPrincipalData = new ArrayList<>();
         ArrayList<String> datosNegocio = new ArrayList<>();
@@ -93,60 +107,59 @@ public class DatosBasicosFragment extends Fragment {
         listOptions.add("Información del conyuge");
 
         informacionPrincipal.add("Nombre completo");
-        informacionPrincipalData.add("Juan David Orozco");
+        informacionPrincipalData.add(datosBasicos.getNombreCompleto());
         informacionPrincipal.add("Tipo de documento");
-        informacionPrincipalData.add("Cedula de ciudadania");
+        informacionPrincipalData.add(datosBasicos.getTipoIdentificacion());
         informacionPrincipal.add("Número de documento");
-        informacionPrincipalData.add("123,456");
+        informacionPrincipalData.add(datosBasicos.getIdentificacion());
         informacionPrincipal.add("Número de cliente");
-        informacionPrincipalData.add("122,233");
+        informacionPrincipalData.add(datosBasicos.getNumeroCliente());
         informacionPrincipal.add("Correo Electrónico");
-        informacionPrincipalData.add("Mj@Gmail.com");
+        informacionPrincipalData.add(datosBasicos.getCorreoElectronico());
         informacionPrincipal.add("Estado Civil");
-        informacionPrincipalData.add("Soltero");
+        informacionPrincipalData.add(datosBasicos.getEstadoCivil());
         informacionPrincipal.add("Telefono #1");
-        informacionPrincipalData.add("(310)-000-0000");
+        informacionPrincipalData.add(datosBasicos.getTelefono1());
         informacionPrincipal.add("Telefono #2");
-        informacionPrincipalData.add("(310)-000-0000");
+        informacionPrincipalData.add(datosBasicos.getTelefono2());
         informacionPrincipal.add("Tipo vivienda");
-        informacionPrincipalData.add("Propia");
+        informacionPrincipalData.add(datosBasicos.getTipoVivienda());
         informacionPrincipal.add("Total Activos");
-        informacionPrincipalData.add(" $250,000,000.00");
+        informacionPrincipalData.add(datosBasicos.getTotalActivos());
         informacionPrincipal.add("Última Fecha De Actualización De Datos");
-        informacionPrincipalData.add("-");
+        informacionPrincipalData.add(datosBasicos.getUltimaFechaActualizacion());
         informacionPrincipal.add("Funcionario Que Realizó Actualización De Datos");
-        informacionPrincipalData.add("Lina Camargo");
+        informacionPrincipalData.add(datosBasicos.getFuncionarioRealizoActualizacion());
         informacionPrincipal.add("¿Se Requiere Actualización De Datos?");
-        informacionPrincipalData.add("No");
+        informacionPrincipalData.add(datosBasicos.getRequiereActualizacion());
 
 
         datosNegocio.add("Dirección De Domicilio");
-        datosData.add("Cr 14 # 18 - 03 Alto Del Rosario");
+        datosData.add(datosBasicos.getDomicilio() != null ? datosBasicos.getDomicilio().getDireccion() : "-");
         datosNegocio.add("Tipo De Vivienda");
-        datosData.add("PROPIA");
+        datosData.add(datosBasicos.getDomicilio() != null ? datosBasicos.getDomicilio().getTipo() : "-");
         datosNegocio.add("Teléfono #1");
-        datosData.add("(310)-000-0000");
+        datosData.add(datosBasicos.getDomicilio() != null ? datosBasicos.getDomicilio().getTelefono1() : "-");
         datosNegocio.add("Teléfono #2");
-        datosData.add("3111111111");
+        datosData.add(datosBasicos.getDomicilio() != null ? datosBasicos.getDomicilio().getTelefono2() : "-");
 
 
 
         datosDomicilio.add("Dirección De Negocio");
-        datosDomicilioData.add("Cll 3 # 28 - 28 Los Angeles");
+        datosDomicilioData.add(datosBasicos.getNegocio() != null ? datosBasicos.getNegocio().getDireccion() : "-");
         datosDomicilio.add("Actividad (CIIU)");
-        datosDomicilioData.add("1720 - TEJEDURA DE PRODUCTOS TEXTILES");
+        datosDomicilioData.add(datosBasicos.getNegocio() != null ? datosBasicos.getNegocio().getActividad() : "-");
         datosDomicilio.add("Teléfono #1");
-        datosDomicilioData.add("(313)-447-8967");
-        datosDomicilio.add("Teléfono #2");
-        datosDomicilioData.add("-");
+        datosDomicilioData.add(datosBasicos.getNegocio() != null ? datosBasicos.getNegocio().getTelefono1() : "-");
+
 
 
         datosConyude.add("Nombre Completo");
-        datosConyugeData.add("-");
+        datosConyugeData.add(datosBasicos.getConyuge() != null ? datosBasicos.getConyuge().getNombre() : "-");
         datosConyude.add("Tipo De Documento");
-        datosConyugeData.add("-");
+        datosConyugeData.add(datosBasicos.getConyuge() != null ? datosBasicos.getConyuge().getTipoDocumento() : "-");
         datosConyude.add("Número De Documento");
-        datosConyugeData.add("-");
+        datosConyugeData.add(datosBasicos.getConyuge() != null ? datosBasicos.getConyuge().getNumeroDocumento() : "-");
 
         mapChild.put(listOptions.get(0), informacionPrincipal);
         mapChild2.put(listOptions.get(0), informacionPrincipalData);

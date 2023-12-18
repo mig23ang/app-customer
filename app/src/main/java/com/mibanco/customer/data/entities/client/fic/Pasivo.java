@@ -6,29 +6,31 @@ public class Pasivo implements Serializable {
 
     private String numeroCliente;
     private String numeroProducto;
+    private String estado;
+    private int capital;
     private String tipoProducto;
-    private String detalleProducto;
-    private String estadoPasivo;
+    private String detalleTipoProducto;
+    private int intereses;
+    private int otros;
+    private int saldoTotal;
     private String fechaApertura;
     private String fechaCierre;
-    private String capital;
-    private String intereses;
-    private String otros;
-    private String saldoTotal;
 
-    public Pasivo(String numeroCliente, String numeroProducto, String tipoProducto, String detalleProducto, String estadoPasivo, String fechaApertura, String fechaCierre, String capital, String intereses, String otros, String saldoTotal) {
+
+    public Pasivo(String numeroCliente, String numeroProducto, String estado, int capital, String tipoProducto, String detalleTipoProducto, int intereses, int otros, int saldoTotal, String fechaApertura, String fechaCierre) {
         this.setNumeroCliente(numeroCliente);
         this.setNumeroProducto(numeroProducto);
-        this.setTipoProducto(tipoProducto);
-        this.setDetalleProducto(detalleProducto);
-        this.setEstadoPasivo(estadoPasivo);
-        this.setFechaApertura(fechaApertura);
-        this.setFechaCierre(fechaCierre);
+        this.setEstado(estado);
         this.setCapital(capital);
+        this.setTipoProducto(tipoProducto);
+        this.setDetalleTipoProducto(detalleTipoProducto);
         this.setIntereses(intereses);
         this.setOtros(otros);
         this.setSaldoTotal(saldoTotal);
+        this.setFechaApertura(fechaApertura);
+        this.setFechaCierre(fechaCierre);
     }
+
 
     public String getNumeroCliente() {
         return numeroCliente;
@@ -46,6 +48,22 @@ public class Pasivo implements Serializable {
         this.numeroProducto = numeroProducto;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public int getCapital() {
+        return capital;
+    }
+
+    public void setCapital(int capital) {
+        this.capital = capital;
+    }
+
     public String getTipoProducto() {
         return tipoProducto;
     }
@@ -54,20 +72,36 @@ public class Pasivo implements Serializable {
         this.tipoProducto = tipoProducto;
     }
 
-    public String getDetalleProducto() {
-        return detalleProducto;
+    public String getDetalleTipoProducto() {
+        return detalleTipoProducto;
     }
 
-    public void setDetalleProducto(String detalleProducto) {
-        this.detalleProducto = detalleProducto;
+    public void setDetalleTipoProducto(String detalleTipoProducto) {
+        this.detalleTipoProducto = detalleTipoProducto;
     }
 
-    public String getEstadoPasivo() {
-        return estadoPasivo;
+    public int getIntereses() {
+        return intereses;
     }
 
-    public void setEstadoPasivo(String estadoPasivo) {
-        this.estadoPasivo = estadoPasivo;
+    public void setIntereses(int intereses) {
+        this.intereses = intereses;
+    }
+
+    public int getOtros() {
+        return otros;
+    }
+
+    public void setOtros(int otros) {
+        this.otros = otros;
+    }
+
+    public int getSaldoTotal() {
+        return saldoTotal;
+    }
+
+    public void setSaldoTotal(int saldoTotal) {
+        this.saldoTotal = saldoTotal;
     }
 
     public String getFechaApertura() {
@@ -84,37 +118,5 @@ public class Pasivo implements Serializable {
 
     public void setFechaCierre(String fechaCierre) {
         this.fechaCierre = fechaCierre;
-    }
-
-    public String getCapital() {
-        return capital;
-    }
-
-    public void setCapital(String capital) {
-        this.capital = capital;
-    }
-
-    public String getIntereses() {
-        return intereses;
-    }
-
-    public void setIntereses(String intereses) {
-        this.intereses = intereses;
-    }
-
-    public String getOtros() {
-        return otros;
-    }
-
-    public void setOtros(String otros) {
-        this.otros = otros;
-    }
-
-    public String getSaldoTotal() {
-        return saldoTotal;
-    }
-
-    public void setSaldoTotal(String saldoTotal) {
-        this.saldoTotal = saldoTotal;
     }
 }

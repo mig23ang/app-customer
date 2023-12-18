@@ -1,6 +1,7 @@
 package com.mibanco.customer.data.entities.client.fic;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Client implements Serializable {
     private  int id;
@@ -23,8 +24,12 @@ public class Client implements Serializable {
     private Negocio negocio;
     private OfertasAlertas ofertasAlertas;
 
+    private List<CentralRiesgo> centralesRiesgo;
 
-    public Client(int id, String tipoIdentificacion, String identificacion, String numeroCliente, String nombreCompleto, String correoElectronico, String estadoCivil, String telefono1, String telefono2, String tipoVivienda, String totalActivos, String ultimaFechaActualizacion, String funcionarioRealizoActualizacion, String requiereActualizacion, String ciudad, String pais, Domicilio domicilio, Negocio negocio, OfertasAlertas ofertasAlertas) {
+    private Conyuge conyuge;
+
+
+    public Client(int id, String tipoIdentificacion, String identificacion, String numeroCliente, String nombreCompleto, String correoElectronico, String estadoCivil, String telefono1, String telefono2, String tipoVivienda, String totalActivos, String ultimaFechaActualizacion, String funcionarioRealizoActualizacion, String requiereActualizacion, String ciudad, String pais, Domicilio domicilio, Negocio negocio, OfertasAlertas ofertasAlertas, Conyuge conyuge, List<CentralRiesgo> centralesRiesgo) {
         this.setId(id);
         this.setTipoIdentificacion(tipoIdentificacion);
         this.setIdentificacion(identificacion);
@@ -44,6 +49,8 @@ public class Client implements Serializable {
         this.setDomicilio(domicilio);
         this.setNegocio(negocio);
         this.setOfertasAlertas(ofertasAlertas);
+        this.setConyuge(conyuge);
+        this.setCentralesRiesgo(centralesRiesgo);
     }
 
 
@@ -197,5 +204,21 @@ public class Client implements Serializable {
 
     public void setOfertasAlertas(OfertasAlertas ofertasAlertas) {
         this.ofertasAlertas = ofertasAlertas;
+    }
+
+    public Conyuge getConyuge() {
+        return conyuge;
+    }
+
+    public void setConyuge(Conyuge conyuge) {
+        this.conyuge = conyuge;
+    }
+
+    public List<CentralRiesgo> getCentralesRiesgo() {
+        return centralesRiesgo;
+    }
+
+    public void setCentralesRiesgo(List<CentralRiesgo> centralesRiesgo) {
+        this.centralesRiesgo = centralesRiesgo;
     }
 }

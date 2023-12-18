@@ -14,11 +14,13 @@ import com.mibanco.customer.RetrofitClient;
 import com.mibanco.customer.common.TokenDataStore;
 import com.mibanco.customer.data.entities.client.Client;
 import com.mibanco.customer.data.entities.client.TotalClient;
+import com.mibanco.customer.data.entities.client.fic.DataClients;
 import com.mibanco.customer.data.entities.client.fic.InformacionPrincipal;
 import com.mibanco.customer.response.TokenResponse;
 import com.mibanco.customer.ui.application.LoginActivity;
 import com.mibanco.customer.ui.search.SearchByNameFragment;
 
+import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -29,8 +31,15 @@ public class SearchService {
     private SearchServices searchServices;
 
     public SearchService(){
-        searchServices = RetrofitClient.getClientEs().create(SearchServices.class);
+        try{
+            searchServices = RetrofitClient.getClientEs().create(SearchServices.class);
+        }catch (Exception e){
+            throw new Error(e.getMessage());
+        }
     }
+
+
+
 
     public void getClientsByName(String name, Context context, final OnClientSearchResponseListener listener){
         Dialog loadingDialog = new Dialog(context,  android.R.style.Theme_Black_NoTitleBar_Fullscreen);
@@ -46,11 +55,15 @@ public class SearchService {
             public void onResponse(Call<TotalClient> call, Response<TotalClient> response) {
                 loadingDialog.dismiss();
                 TotalClient totalClient = response.body();
-                if (response.isSuccessful() && totalClient != null) {
-                    listener.onClientGetSuccess(totalClient.getTotalClientes(), totalClient.getClientes());
-                } else {
-                    //listener.onClientGetError("Error en la respuesta");
-                }
+               try{
+                   if (response.isSuccessful()) {
+                       listener.onClientGetSuccess(totalClient.getTotalClientes(), totalClient.getClientes());
+                   }else{
+                       listener.onClientGetError("Error");
+                   }
+               }catch (Exception e){
+                   throw new Error(e.getMessage());
+               }
             }
 
             @Override
@@ -77,7 +90,7 @@ public class SearchService {
     public interface OnClientSearchResponseListener {
         void onClientGetSuccess(String totalClientes, List<Client> clientes);
 
-        void onClientGetError(Throwable t);
+        void onClientGetError(String m);
     }
 
 
@@ -86,6 +99,10 @@ public class SearchService {
 
         void onClientGetError(String message);
     }
+
+
+
+
 
     public void getClientsByDocument(String tipeDocument, String document, Context context, final OnClientSearchByIdResponseListener listener){
         Dialog loadingDialog = new Dialog(context,  android.R.style.Theme_Black_NoTitleBar_Fullscreen);

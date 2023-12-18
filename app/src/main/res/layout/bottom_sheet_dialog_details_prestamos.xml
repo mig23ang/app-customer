@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:paddingStart="30dp"
+        android:background="@drawable/border_bottom_sheet"
+        android:paddingEnd="30dp">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:src="@drawable/baseline_horizontal_rule_24"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lead:"
+            android:textColor="@color/letersblack"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/categoryOfertDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tomalo Ya"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/letersblack"
+             />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo de oferta"
+            android:textColor="@color/letersblack"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/ofertTypeDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="paralelo"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/letersblack" />
+
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Plazo (meses)"
+            android:textColor="@color/letersblack"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/plazoOfertaDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="24"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/letersblack"
+             />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo de liga"
+            android:textColor="@color/letersblack"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tipoLigaOfertaDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/letersblack"
+            android:textStyle="bold" />
+
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Condición garantía"
+            android:textColor="@color/letersblack"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/condicionGarantiaOfertdetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Sujeto a esquema de garantías"
+            android:textColor="@color/letersblack"
+             />
+
+
+        <TextView
+            android:textAlignment="textEnd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Monto"
+            android:textColor="@color/bordergray"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/montoOfertaDetails"
+            android:textAlignment="textEnd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="$ 200.000.000"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

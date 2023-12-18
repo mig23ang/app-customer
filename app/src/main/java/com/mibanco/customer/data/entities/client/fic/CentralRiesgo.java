@@ -4,49 +4,50 @@ import java.io.Serializable;
 
 public class CentralRiesgo implements Serializable {
 
+    private String persona ;
 
-    private String numeroCliente;
-    private String resultadoConsultaMasReciente;
-    private Boolean vbVigenteParaSerConsultado;
-    private String fechaConsultaMasReciente;
+    private String resultadoConsultaReciente;
+    private String vbConsulta;
+    private String fechaConsultaReciente;
 
 
-    public CentralRiesgo(String numeroCliente, String resultadoConsultaMasReciente, Boolean vbVigenteParaSerConsultado, String fechaConsultaMasReciente) {
-        this.setNumeroCliente(numeroCliente);
-        this.setResultadoConsultaMasReciente(resultadoConsultaMasReciente);
-        this.setVbVigenteParaSerConsultado(vbVigenteParaSerConsultado);
-        this.setFechaConsultaMasReciente(fechaConsultaMasReciente);
+    public CentralRiesgo(String persona, String resultadoConsultaReciente, String vbConsulta, String fechaConsultaReciente) {
+        this.setPersona(persona);
+        this.setResultadoConsultaReciente(resultadoConsultaReciente);
+        this.setVbConsulta(vbConsulta);
+        this.setFechaConsultaReciente(fechaConsultaReciente);
     }
 
-    public String getNumeroCliente() {
-        return numeroCliente;
+
+    public String getPersona() {
+        return persona;
     }
 
-    public void setNumeroCliente(String numeroCliente) {
-        this.numeroCliente = numeroCliente;
+    public void setPersona(String persona) {
+        this.persona = persona;
     }
 
-    public String getResultadoConsultaMasReciente() {
-        return resultadoConsultaMasReciente;
+    public String getResultadoConsultaReciente() {
+        return resultadoConsultaReciente;
     }
 
-    public void setResultadoConsultaMasReciente(String resultadoConsultaMasReciente) {
-        this.resultadoConsultaMasReciente = resultadoConsultaMasReciente;
+    public void setResultadoConsultaReciente(String resultadoConsultaReciente) {
+        this.resultadoConsultaReciente = resultadoConsultaReciente;
     }
 
-    public Boolean getVbVigenteParaSerConsultado() {
-        return vbVigenteParaSerConsultado;
+    public String getVbConsulta() {
+        return vbConsulta;
     }
 
-    public void setVbVigenteParaSerConsultado(Boolean vbVigenteParaSerConsultado) {
-        this.vbVigenteParaSerConsultado = vbVigenteParaSerConsultado;
+    public void setVbConsulta(String vbConsulta) {
+        this.vbConsulta = vbConsulta;
     }
 
-    public String getFechaConsultaMasReciente() {
-        return fechaConsultaMasReciente;
+    public String getFechaConsultaReciente() {
+        return fechaConsultaReciente;
     }
 
-    public void setFechaConsultaMasReciente(String fechaConsultaMasReciente) {
-        this.fechaConsultaMasReciente = fechaConsultaMasReciente;
+    public void setFechaConsultaReciente(String fechaConsultaReciente) {
+        this.fechaConsultaReciente = fechaConsultaReciente;
     }
 }

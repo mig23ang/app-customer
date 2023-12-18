@@ -4,24 +4,40 @@ import java.io.Serializable;
 
 public class CupoRotativo implements Serializable {
 
-    private String estado;
-    private String fechaDeVencimiento;
-    private String montoCupoCredito;
-    private String montoUtilizado;
     private String numeroCliente;
-    private String numeroCupo;
+    private String numeroPrestamo;
+    private String estado;
+    private String montoCupo;
+    private String montoUtilizado;
     private String saldoDisponible;
+    private String fechaVencimiento;
 
-    public CupoRotativo(String estado, String fechaDeVencimiento, String montoCupoCredito, String montoUtilizado, String numeroCliente, String numeroCupo, String saldoDisponible) {
-        this.setEstado(estado);
-        this.setFechaDeVencimiento(fechaDeVencimiento);
-        this.setMontoCupoCredito(montoCupoCredito);
-        this.setMontoUtilizado(montoUtilizado);
+    public CupoRotativo(String numeroCliente, String numeroPrestamo, String estado, String montoCupo, String montoUtilizado, String saldoDisponible, String fechaVencimiento) {
         this.setNumeroCliente(numeroCliente);
-        this.setNumeroCupo(numeroCupo);
+        this.setNumeroPrestamo(numeroPrestamo);
+        this.setEstado(estado);
+        this.setMontoCupo(montoCupo);
+        this.setMontoUtilizado(montoUtilizado);
         this.setSaldoDisponible(saldoDisponible);
+        this.setFechaVencimiento(fechaVencimiento);
     }
 
+
+    public String getNumeroCliente() {
+        return numeroCliente;
+    }
+
+    public void setNumeroCliente(String numeroCliente) {
+        this.numeroCliente = numeroCliente;
+    }
+
+    public String getNumeroPrestamo() {
+        return numeroPrestamo;
+    }
+
+    public void setNumeroPrestamo(String numeroPrestamo) {
+        this.numeroPrestamo = numeroPrestamo;
+    }
 
     public String getEstado() {
         return estado;
@@ -31,20 +47,12 @@ public class CupoRotativo implements Serializable {
         this.estado = estado;
     }
 
-    public String getFechaDeVencimiento() {
-        return fechaDeVencimiento;
+    public String getMontoCupo() {
+        return montoCupo;
     }
 
-    public void setFechaDeVencimiento(String fechaDeVencimiento) {
-        this.fechaDeVencimiento = fechaDeVencimiento;
-    }
-
-    public String getMontoCupoCredito() {
-        return montoCupoCredito;
-    }
-
-    public void setMontoCupoCredito(String montoCupoCredito) {
-        this.montoCupoCredito = montoCupoCredito;
+    public void setMontoCupo(String montoCupo) {
+        this.montoCupo = montoCupo;
     }
 
     public String getMontoUtilizado() {
@@ -55,27 +63,19 @@ public class CupoRotativo implements Serializable {
         this.montoUtilizado = montoUtilizado;
     }
 
-    public String getNumeroCliente() {
-        return numeroCliente;
-    }
-
-    public void setNumeroCliente(String numeroCliente) {
-        this.numeroCliente = numeroCliente;
-    }
-
-    public String getNumeroCupo() {
-        return numeroCupo;
-    }
-
-    public void setNumeroCupo(String numeroCupo) {
-        this.numeroCupo = numeroCupo;
-    }
-
     public String getSaldoDisponible() {
         return saldoDisponible;
     }
 
     public void setSaldoDisponible(String saldoDisponible) {
         this.saldoDisponible = saldoDisponible;
+    }
+
+    public String getFechaVencimiento() {
+        return fechaVencimiento;
+    }
+
+    public void setFechaVencimiento(String fechaVencimiento) {
+        this.fechaVencimiento = fechaVencimiento;
     }
 }

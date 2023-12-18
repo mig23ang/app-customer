@@ -7,27 +7,43 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.mibanco.customer.R;
+import com.mibanco.customer.data.entities.client.fic.Alerta;
+import com.mibanco.customer.data.entities.client.fic.Oferta;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class ExpendableOfertasAlertasAdapter extends BaseExpandableListAdapter {
 
+    OfertaAdapter ofertaAdapter;
+    AlertaAdapter alertaAdapter;
+
+
     private ArrayList<String> listOptions;
 
-    private Map<String, ArrayList<String>> mapChild;
+    private Map<String, List<Oferta>> mapChild;
+
+    private Map<String, List<Alerta>> mapChild2;
 
     private Context context;
 
 
 
-    public ExpendableOfertasAlertasAdapter(ArrayList<String> listOptions, Map<String, ArrayList<String>> mapChild, Context context) {
+
+
+    public ExpendableOfertasAlertasAdapter(ArrayList<String> listOptions, Map<String, List<Oferta>> mapChild,  Map<String, List<Alerta>> mapChild2, Context context) {
         this.listOptions = listOptions;
         this.mapChild = mapChild;
+        this.mapChild2 = mapChild2;
         this.context = context;
     }
 
@@ -38,8 +54,11 @@ public class ExpendableOfertasAlertasAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int i) {
-
-        return mapChild.get(listOptions.get(i)).size();
+        /*
+        Se establece 1 solo por que se están repitiendo las listas de alertas
+        y ofertas, esto restringe esa repetición
+        */
+        return 1;
     }
 
     @Override
@@ -78,18 +97,41 @@ public class ExpendableOfertasAlertasAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
-        String item  = (String) getChild(i, i1);
+        if (view == null) {
+            view = LayoutInflater.from(context).inflate(R.layout.child_ofertas_alertas, null);
+        }
+
+        String groupName = listOptions.get(i);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerOfertas);
+        if(groupName.equals("Ofertas")){
+            List<Oferta> ofertas = mapChild.get(groupName);
 
 
 
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false));
 
-        view = LayoutInflater.from(context).inflate(R.layout.child_ofertas_alertas, null);
-        TextView tittle =  view.findViewById(R.id.titleOA);
 
-        tittle.setText(item);
+            ofertaAdapter = new OfertaAdapter(view.getContext(), ofertas);
+            recyclerView.setAdapter(ofertaAdapter);
+
+        }else if(groupName.equals("Alertas")){
+            List<Alerta> alertaList = mapChild2.get(groupName);
+
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false));
+
+
+            alertaAdapter = new AlertaAdapter(view.getContext(), alertaList);
+            recyclerView.setAdapter(alertaAdapter);
+        }
+
+
+
 
         return view;
     }
+
 
     @Override
     public boolean isChildSelectable(int i, int i1) {

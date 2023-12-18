@@ -18,7 +18,9 @@ public interface AuthService {
     @Headers({
             "Content-Type: application/json",
     })
-    @POST("v1/ms/acceso/autentica/usuario/")
+
+
+    @POST("autentica/usuario/")
     Call<TokenResponse> loginUser(
             @Header("clientID") String clientID,
             @Header("deviceType") String deviceType,
@@ -28,10 +30,14 @@ public interface AuthService {
 
 
 
-    @GET("v1/ms/acceso/verifica/usuario/")
+    @GET("verifica/usuario/")
     Call<Void> validateToken(
             @Header("jwt") String token,
             @Header("clientAction") String clientAction,
             @Header("resourceRequest") String resourceRequest
     );
+
+
+
+
 }

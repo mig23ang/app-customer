@@ -5,13 +5,13 @@ import java.io.Serializable;
 public class Contacto  implements Serializable {
     private String numeroCliente;
     private String fecha;
-    private String tipoContacto;
+    private String tipo;
     private String resultadoComentarios;
 
-    public Contacto(String numeroCliente, String fecha, String tipoContacto, String resultadoComentarios) {
+    public Contacto(String numeroCliente, String fecha, String tipo, String resultadoComentarios) {
         this.setNumeroCliente(numeroCliente);
         this.setFecha(fecha);
-        this.setTipoContacto(tipoContacto);
+        this.setTipoContacto(tipo);
         this.setResultadoComentarios(resultadoComentarios);
     }
 
@@ -33,11 +33,11 @@ public class Contacto  implements Serializable {
     }
 
     public String getTipoContacto() {
-        return tipoContacto;
+        return tipo;
     }
 
     public void setTipoContacto(String tipoContacto) {
-        this.tipoContacto = tipoContacto;
+        this.tipo = tipoContacto;
     }
 
     public String getResultadoComentarios() {

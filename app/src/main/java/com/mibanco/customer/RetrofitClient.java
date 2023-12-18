@@ -16,49 +16,81 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    private static final String BASE_URL = "https://apiqa.mibanco.com.co/";
+    private static final String BASE_URL_MOCKABLE = "https://demo5888600.mockable.io/";
 
-    private static final String BASE_URL_ES = "https://apiqa.mibanco.com.co/";
-    private static final String BASE_URL_DEV = "https://apidev.mibanco.com.co/";
+    private static final String URL_AUTENTICACION = "https://apiqa.mibanco.com.co/v1/ms/acceso/";
+
+    private static final String URL_FIC = "https://apidev.mibanco.com.co/v1/es/cliente-fic/";
 
     private static Retrofit retrofit = null;
 
-    public static Retrofit getClient() {
+    private static Retrofit retrofitt = null;
+
+
+
+    public static Retrofit getMockeble(){
         OkHttpClient unsafeOkHttpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient();
-        if (retrofit == null) {
+
             Gson gson = new GsonBuilder().setLenient().create();
             retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
+                    .baseUrl(BASE_URL_MOCKABLE)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .client(unsafeOkHttpClient)
                     .build();
-        }
+
+        return retrofit;
+    }
+
+    public static Retrofit getMockebleOther(){
+        OkHttpClient unsafeOkHttpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient();
+
+            Gson gson = new GsonBuilder().setLenient().create();
+            retrofitt = new Retrofit.Builder()
+                    .baseUrl("https://demo5888600.mockable.io/")
+                    .addConverterFactory(GsonConverterFactory.create(gson))
+                    .client(unsafeOkHttpClient)
+                    .build();
+
+        return retrofitt;
+    }
+
+
+    public static Retrofit getClient() {
+        OkHttpClient unsafeOkHttpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient();
+
+            Gson gson = new GsonBuilder().setLenient().create();
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(URL_AUTENTICACION)
+                    .addConverterFactory(GsonConverterFactory.create(gson))
+                    .client(unsafeOkHttpClient)
+                    .build();
+
         return retrofit;
     }
 
     public static Retrofit getClientEs() {
         OkHttpClient unsafeOkHttpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient();
-        if (retrofit == null) {
+
             Gson gson = new GsonBuilder().setLenient().create();
             retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL_ES)
+                    .baseUrl(URL_FIC)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .client(unsafeOkHttpClient)
                     .build();
-        }
+
         return retrofit;
     }
 
     public static Retrofit getClientDev() {
         OkHttpClient unsafeOkHttpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient();
-        if (retrofit == null) {
+
             Gson gson = new GsonBuilder().setLenient().create();
             retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL_DEV)
+                    .baseUrl(URL_FIC)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .client(unsafeOkHttpClient)
                     .build();
-        }
+
         return retrofit;
     }
 }

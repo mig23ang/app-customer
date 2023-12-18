@@ -97,7 +97,7 @@ public class SearchByNameFragment extends Fragment implements SearchService.OnCl
     }
 
     @Override
-    public void onClientGetError(Throwable t) {
+    public void onClientGetError(String m) {
 
     }
 

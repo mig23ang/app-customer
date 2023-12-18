@@ -1,6 +1,8 @@
 package com.mibanco.customer.data.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mibanco.customer.R;
@@ -20,7 +23,7 @@ import java.util.List;
 public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ClientViewHolder> implements View.OnClickListener {
     private LayoutInflater layoutInflater;
     //private View.OnClickListener listener;
-    private SearchService.OnClientSearchByIdResponseListener listener;
+    private static SearchService.OnClientSearchByIdResponseListener listener;
     private List<Client> clientList;
 
     public ClientAdapter(Context context, List<Client> clientList, SearchService.OnClientSearchByIdResponseListener listener) {
@@ -57,7 +60,7 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ClientView
 
 
 
-    public class ClientViewHolder extends RecyclerView.ViewHolder {
+    public static class ClientViewHolder extends RecyclerView.ViewHolder {
         TextView nameClient, documentClient, tipeDocument;
 
         public ClientViewHolder(@NonNull View itemView) {
@@ -68,10 +71,17 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ClientView
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //Toast.makeText(itemView.getContext(), "documento: "+ documentClient.getText().toString(), Toast.LENGTH_SHORT).show();
+
+                try{
                     SearchService searchService = new SearchService();
                     searchService.getClientsByDocument(tipeDocument.getText().toString(), documentClient.getText().toString(), itemView.getContext(), listener);
+
+                }catch (Exception e){
+                    Log.e("Error", "onClick: " + e);
+                    Toast.makeText(itemView.getContext(), "error: "+ e, Toast.LENGTH_SHORT).show();
+
                 }
+                     }
             });
         }
     }

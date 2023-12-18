@@ -23,7 +23,7 @@ import com.mibanco.customer.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 
-    TextView fichaIntegralCliente;
+    TextView fichaIntegralCliente, probarMenu;
 
 
     private HomeViewModel homeViewModel;
@@ -36,9 +36,21 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
+        probarMenu = binding.probarsinapi;
         fichaIntegralCliente = binding.btnhomelastvisited;
 
+
+        probarMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+
+                bundle.putString("clientDetailsTipoDocumento", "CC");
+                bundle.putString("clientDetailsDocumento", "123456789");
+                Navigation.findNavController(getActivity(), R.id.fragment).navigate(R.id.clientMenuFragment, bundle);
+
+            }
+        });
         fichaIntegralCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

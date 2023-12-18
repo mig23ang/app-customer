@@ -22,11 +22,15 @@ import androidx.navigation.ui.NavigationUI;
 import com.mibanco.customer.R;
 import com.mibanco.customer.data.adapters.ClientDataAdapter;
 import com.mibanco.customer.data.adapters.ExpendableOfertasAlertasAdapter;
+import com.mibanco.customer.data.entities.client.fic.Alerta;
+import com.mibanco.customer.data.entities.client.fic.Client;
+import com.mibanco.customer.data.entities.client.fic.Oferta;
 import com.mibanco.customer.databinding.FragmentFicSearchBinding;
 import com.mibanco.customer.databinding.FragmentOfertaAlertaBinding;
 
 ;import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -34,10 +38,15 @@ public class OfertaAlertaFragment extends Fragment {
     private ExpandableListView options;
     private ExpendableOfertasAlertasAdapter adapter;
     private ArrayList<String> listOptions;
-    private Map<String, ArrayList<String>> mapChild;
+    private Map<String, List<Oferta>> mapChild;
+    private Map<String, List<Alerta>> mapChild2;
 
     private OfertaAlertaViewModel ficSearchViewModel;
     private FragmentOfertaAlertaBinding binding;
+
+
+    TextView fullName, phoneCompany;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -48,9 +57,12 @@ public class OfertaAlertaFragment extends Fragment {
         View root = binding.getRoot();
 
 
+        fullName = binding.fullName;
+        phoneCompany = binding.phoneCompany;
         options = binding.expandableListOfertasAlertas;
         listOptions = new ArrayList<>();
         mapChild=new HashMap<>();
+        mapChild2=new HashMap<>();
         cargarDatosBasicos();
 
 
@@ -58,27 +70,25 @@ public class OfertaAlertaFragment extends Fragment {
     }
 
 
-    private void cargarDatosBasicos(){
-        ArrayList<String> ofertas = new ArrayList<>();
-        ArrayList<String> alertas = new ArrayList<>();
+    private void cargarDatosBasicos() {
+        Client datosBasicos = (Client) getArguments().getSerializable("datosBasicos");
+        fullName.setText(datosBasicos.getNombreCompleto());
+        phoneCompany.setText(datosBasicos.getNegocio() != null ? datosBasicos.getNegocio().getTelefono1() : "-");
+        List<Oferta> ofertaList = datosBasicos.getOfertasAlertas().getOfertas();
+        List<Alerta> alertaList = datosBasicos.getOfertasAlertas().getAlertas();
 
         listOptions.add("Ofertas");
         listOptions.add("Alertas");
 
-        ofertas.add("No hay ofertas registradas");
-        alertas.add("No hay Alertas registradas");
+        mapChild.clear();
+        mapChild.put(listOptions.get(0), ofertaList);
+        mapChild2.put(listOptions.get(1), alertaList);
 
-
-
-
-        mapChild.put(listOptions.get(0), ofertas);
-
-
-        mapChild.put(listOptions.get(1), alertas);
-
-        adapter = new ExpendableOfertasAlertasAdapter( listOptions, mapChild,getContext());
+        adapter = new ExpendableOfertasAlertasAdapter(listOptions, mapChild, mapChild2,getContext());
         options.setAdapter(adapter);
     }
+
+
 
     @Override
     public void onDestroyView() {

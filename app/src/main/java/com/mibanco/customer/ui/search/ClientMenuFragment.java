@@ -19,16 +19,31 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.mibanco.customer.R;
+import com.mibanco.customer.data.adapters.ClientAdapter;
+import com.mibanco.customer.data.adapters.ClientOptionsAdapter;
+import com.mibanco.customer.data.entities.client.fic.Client;
+import com.mibanco.customer.data.entities.client.fic.DataClients;
 import com.mibanco.customer.data.entities.client.fic.InformacionPrincipal;
 import com.mibanco.customer.databinding.FragmentClientMenuBinding;
 import com.mibanco.customer.databinding.FragmentLibraryBinding;
+import com.mibanco.customer.services.ClientService;
+import com.mibanco.customer.services.SearchService;
 
-;
+;import java.util.ArrayList;
+import java.util.List;
 
 
-public class ClientMenuFragment extends Fragment {
+public class ClientMenuFragment extends Fragment implements ClientService.OnClientMenuResponseListener {
+
+    ClientOptionsAdapter clientOptionsAdapter;
+
+    List<Client> clientList;
+
+    RecyclerView recyclerView;
 
     LinearLayout datosBasicos, ofertasAlertas, centralesRiesgo, historialPrestamos, cupoRotativo, pasivos, historialContacto, pqr;
 
@@ -43,7 +58,7 @@ public class ClientMenuFragment extends Fragment {
 
         binding = FragmentClientMenuBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        title_name_menu_name = binding.titleNameMenuName;
+        /*title_name_menu_name = binding.titleNameMenuName;
         title_phone_menu_number = binding.titlePhoneMenuNumber;
         back_details = binding.backDetails;
         datosBasicos = binding.datosBasicos;
@@ -53,76 +68,16 @@ public class ClientMenuFragment extends Fragment {
         cupoRotativo = binding.cupoRotativo;
         pasivos = binding.pasivos;
         historialContacto = binding.historialContacto;
-        pqr = binding.pqr;
-
-
-        pqr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(getActivity(), R.id.fragment).navigate(R.id.pqrFragment);
-
-            }
-        });
-
-        historialContacto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(getActivity(), R.id.fragment).navigate(R.id.historialContactoFragment);
-
-            }
-        });
-
-        pasivos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(getActivity(), R.id.fragment).navigate(R.id.pasivosFragment);
-
-            }
-        });
-        cupoRotativo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(getActivity(), R.id.fragment).navigate(R.id.cupoRotativoFragment);
-
-            }
-        });
-
-        historialPrestamos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(getActivity(), R.id.fragment).navigate(R.id.historialPrestamoFragment);
-            }
-        });
-
-        centralesRiesgo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(getActivity(), R.id.fragment).navigate(R.id.centralesRiesgoFragment);
-            }
-        });
-
-        ofertasAlertas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(getActivity(), R.id.fragment).navigate(R.id.ofertaAlertaFragment);
-            }
-        });
-        datosBasicos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(getActivity(), R.id.fragment).navigate(R.id.datosBasicosFragment);
-            }
-        });
-        back_details.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavController navController = Navigation.findNavController(requireActivity(), R.id.fragment);
-                navController.navigateUp();
-            }
-        });
+        pqr = binding.pqr;*/
+        recyclerView = binding.recyclerViewClientSelect;
+        ClientService clientService = new ClientService();
+        clientService.getClientToMenu(getContext(), ClientMenuFragment.this);
 
 
 
+
+
+/*
         try{
 
         }catch (Exception e){
@@ -147,9 +102,9 @@ public class ClientMenuFragment extends Fragment {
 
             String documento = getArguments().getString("clientDetailsDocumento");
             String tipoDocumento = getArguments().getString("clientDetailsTipoDocumento");
-            title_name_menu_name.setText(informacionPrincipal.getRazonSocial());
+            title_name_menu_name.setText("Juan Carlos Ramirez");
             title_phone_menu_number.setText(tipoDocumento + " " + documento);
-        }
+        }*/
 
         return root;
     }
@@ -161,5 +116,18 @@ public class ClientMenuFragment extends Fragment {
     }
 
 
+    @Override
+    public void onClientGetSuccess(List<Client> client) {
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false));
+        clientList = new ArrayList<>();
 
+        clientOptionsAdapter = new ClientOptionsAdapter(getContext(), client);
+        recyclerView.setAdapter(clientOptionsAdapter);
+    }
+
+    @Override
+    public void onClientGetError(String message) {
+
+    }
 }
